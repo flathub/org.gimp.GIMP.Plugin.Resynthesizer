@@ -24,7 +24,8 @@
                 }
             },
             "post-install": [
-                "strip ${FLATPAK_DEST}/resynthesizer/resynthesizer*",
+                "strip ${FLATPAK_DEST}/resynthesizer/resynthesizer",
+                "ln -sf resynthesizer/resynthesizer ${FLATPAK_DEST}/Resynthesizer",
                 "install -Dm644 ../gimp-resynthesizer.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.gimp.GIMP.Plugin.Resynthesizer.metainfo.xml",
                 "appstream-compose --basename=org.gimp.GIMP.Plugin.Resynthesizer --prefix=${FLATPAK_DEST} --origin=flatpak org.gimp.GIMP.Plugin.Resynthesizer",
                 "# mkdir $FLATPAK_DEST/help",
