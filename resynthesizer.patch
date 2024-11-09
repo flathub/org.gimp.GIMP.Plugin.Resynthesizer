@@ -16,7 +16,8 @@ index 91bdcd2..a3fb7ac 100644
 @@ -12,4 +12,8 @@
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-3.0+</project_license>
- <updatecontact>bootch_AT_nc.rr.com</updatecontact>
+-<updatecontact>bootch_AT_nc.rr.com</updatecontact>
++<update_contact>bootch_AT_nc.rr.com</update_contact>
 +<releases>
 +  <release date="2023-09-26"  version="3.0-beta~dee6711"/>
 +  <release date="2018-01-09"  version="2.0.3"/>
