@@ -5,7 +5,6 @@
     "runtime-version": "beta",
     "sdk": "org.gnome.Sdk//46",
     "build-extension": true,
-    "appstream-compose": false,
     "build-options": {
         "prefix": "/app/extensions/plug-ins/Resynthesizer",
         "prepend-path": "/app/extensions/plug-ins/Resynthesizer/bin"
@@ -27,7 +26,6 @@
                 "strip ${FLATPAK_DEST}/resynthesizer/resynthesizer",
                 "ln -sf resynthesizer/resynthesizer ${FLATPAK_DEST}/Resynthesizer",
                 "install -Dm644 ../gimp-resynthesizer.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.gimp.GIMP.Plugin.Resynthesizer.metainfo.xml",
-                "appstream-compose --basename=org.gimp.GIMP.Plugin.Resynthesizer --prefix=${FLATPAK_DEST} --origin=flatpak org.gimp.GIMP.Plugin.Resynthesizer",
                 "# mkdir $FLATPAK_DEST/help",
                 "# mv $FLATPAK_DEST/share/resynthesizer/help $FLATPAK_DEST/help/resynthesizer",
                 "install -Dm644 -t $FLATPAK_DEST/share/licenses/resynthesizer ../COPYING"
@@ -36,7 +34,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/bootchk/resynthesizer.git",
-                    "commit": "dee67110c51cbc69c28435ac7485766c3eb30a94"
+                    "commit": "12a967da9d723321b06e37c2b601cb77c320aedd"
                 },
                 {
                     "type": "patch",
