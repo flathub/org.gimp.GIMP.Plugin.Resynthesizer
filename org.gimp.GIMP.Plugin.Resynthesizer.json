@@ -6,8 +6,8 @@
     "sdk": "org.gnome.Sdk//47",
     "build-extension": true,
     "build-options": {
-        "prefix": "/app/extensions/plug-ins/Resynthesizer",
-        "prepend-path": "/app/extensions/plug-ins/Resynthesizer/bin"
+        "prefix": "/app/extensions/Resynthesizer",
+        "prepend-path": "/app/extensions/Resynthesizer/bin"
     },
     "cleanup": [
         "/bin",
@@ -23,8 +23,8 @@
                 }
             },
             "post-install": [
-                "strip ${FLATPAK_DEST}/resynthesizer/resynthesizer",
-                "ln -sf resynthesizer/resynthesizer ${FLATPAK_DEST}/Resynthesizer",
+                "strip ${FLATPAK_DEST}/plug-ins/resynthesizer/resynthesizer",
+                "ln -sf ${FLATPAK_DEST}/share/locale ${FLATPAK_DEST}/plug-ins/resynthesizer",
                 "install -Dm644 ../gimp-resynthesizer.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.gimp.GIMP.Plugin.Resynthesizer.metainfo.xml",
                 "# mkdir $FLATPAK_DEST/help",
                 "# mv $FLATPAK_DEST/share/resynthesizer/help $FLATPAK_DEST/help/resynthesizer",
