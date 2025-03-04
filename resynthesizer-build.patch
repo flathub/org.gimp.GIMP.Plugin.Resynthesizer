@@ -1,0 +1,11 @@
+--- a/meson.build-orig	2023-10-31 20:06:23.763290835 -0400
++++ a/meson.build	2023-10-31 20:07:13.343189905 -0400
+@@ -73,7 +73,7 @@
+ # TODO this is platform specific, for Ubuntu
+ # TODO should install to user specific location (customizations) ???
+ # define the location to install gimp plugins.
+-gimpplugindir = prefix / get_option('libdir') / 'gimp/3.0/plug-ins'
++gimpplugindir = prefix / 'plug-ins'
+ 
+ 
+ 
