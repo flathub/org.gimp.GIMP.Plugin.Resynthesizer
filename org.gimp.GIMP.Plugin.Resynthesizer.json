@@ -1,9 +1,9 @@
 {
     "id": "org.gimp.GIMP.Plugin.Resynthesizer",
-    "branch": "2-40",
+    "branch": "3",
     "runtime": "org.gimp.GIMP",
-    "runtime-version": "stable",
-    "sdk": "org.gnome.Sdk//46",
+    "runtime-version": "beta",
+    "sdk": "org.gnome.Sdk//47",
     "build-extension": true,
     "build-options": {
         "prefix": "/app/extensions/Resynthesizer",
@@ -14,31 +14,34 @@
         "/share/man"
     ],
     "modules": [
-        "shared-modules/intltool/intltool-0.51.json",
         {
             "name": "resynthesizer",
+            "buildsystem": "meson",
             "build-options": {
                 "env": {
-                    "ACLOCAL_FLAGS": "-I /app/extensions/Resynthesizer/share/aclocal",
                     "GIMP_LIBDIR": "${FLATPAK_DEST}"
                 }
             },
             "post-install": [
-                "strip ${FLATPAK_DEST}/plug-ins/resynthesizer*",
-                "install -Dm644 gimp-resynthesizer.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.gimp.GIMP.Plugin.Resynthesizer.metainfo.xml",
-                "mkdir $FLATPAK_DEST/help",
-                "mv $FLATPAK_DEST/share/resynthesizer/help $FLATPAK_DEST/help/resynthesizer",
-                "install -Dm644 -t $FLATPAK_DEST/share/licenses/resynthesizer COPYING"
+                "strip ${FLATPAK_DEST}/plug-ins/resynthesizer/resynthesizer",
+                "ln -sf ${FLATPAK_DEST}/share/locale ${FLATPAK_DEST}/plug-ins/resynthesizer",
+                "install -Dm644 ../gimp-resynthesizer.metainfo.xml ${FLATPAK_DEST}/share/metainfo/org.gimp.GIMP.Plugin.Resynthesizer.metainfo.xml",
+                "# mkdir $FLATPAK_DEST/help",
+                "# mv $FLATPAK_DEST/share/resynthesizer/help $FLATPAK_DEST/help/resynthesizer",
+                "install -Dm644 -t $FLATPAK_DEST/share/licenses/resynthesizer ../COPYING"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/bootchk/resynthesizer/archive/v2.0.3.tar.gz",
-                    "sha256": "798678095c34b101c880eb350b31e9a6ff9748707d6ad9063cdee26c38016450"
+                    "type": "git",
+                    "url": "https://github.com/bootchk/resynthesizer.git",
+                    "commit": "93d21398aee0f8086b1a9fa5d37b2dd090463417"
                 },
                 {
                     "type": "patch",
-                    "path": "resynthesizer.patch"
+                    "paths": [
+                        "resynthesizer.patch",
+                        "resynthesizer-build.patch"
+                    ]
                 }
             ]
         }

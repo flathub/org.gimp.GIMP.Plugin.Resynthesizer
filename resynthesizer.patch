@@ -1,30 +1,8 @@
-diff --git a/configure.ac b/configure.ac
-index b66c985..09e6340 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -63,7 +63,7 @@ PKG_CHECK_MODULES(GIMP,
- AC_SUBST(GIMP_CFLAGS)
- AC_SUBST(GIMP_LIBS)
- 
--GIMP_LIBDIR=`$PKG_CONFIG --variable=gimplibdir gimp-2.0`
-+GIMP_LIBDIR?=`$PKG_CONFIG --variable=gimplibdir gimp-2.0`
- AC_SUBST(GIMP_LIBDIR)
- 
- 
-@@ -89,7 +89,7 @@ AC_CHECK_LIB(gthread-2.0, g_thread_init)
- dnl lkk 2011 I copied this from the main gimp configure.in
- dnl where $PACKAGE is gimp and gimp_plugin_version is 2.0
- dnl gimpplugindir="$libdir/$PACKAGE/gimp_plugin_version"
--gimpplugindir="$libdir/gimp/2.0"
-+gimpplugindir="$GIMP_LIBDIR"
- AC_SUBST(gimpplugindir)
- 
- LOCALEDIR='${datadir}/locale'
 diff --git a/gimp-resynthesizer.metainfo.xml b/gimp-resynthesizer.metainfo.xml
 index 91bdcd2..9cf3598 100644
 --- a/gimp-resynthesizer.metainfo.xml
 +++ b/gimp-resynthesizer.metainfo.xml
-@@ -2,14 +2,20 @@
+@@ -2,8 +2,12 @@
  <!-- Copyright 2016 Lloyd Konneker <bootch@nc.rr.com>
  -->
  <component type="addon">
@@ -40,12 +18,13 @@ index 91bdcd2..9cf3598 100644
 +  theme an image, and more</p>
 +</description>
  <url type="homepage">http://logarithmic.net/pfh/resynthesizer</url>
--<url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gimp&amp;component=Plugins</url>
- <url type="faq">https://github.com/bootchk/resynthesizer.git</url>
+@@ -12,4 +12,8 @@
  <metadata_license>CC0-1.0</metadata_license>
  <project_license>GPL-3.0+</project_license>
- <updatecontact>bootch_AT_nc.rr.com</updatecontact>
+-<updatecontact>bootch_AT_nc.rr.com</updatecontact>
++<update_contact>bootch_AT_nc.rr.com</update_contact>
 +<releases>
++  <release date="2023-09-26"  version="3.0-beta~9cd2113"/>
 +  <release date="2018-01-09"  version="2.0.3"/>
 +</releases>
  ​</component>
