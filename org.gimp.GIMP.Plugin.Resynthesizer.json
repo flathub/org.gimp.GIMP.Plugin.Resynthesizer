@@ -2,8 +2,8 @@
     "id": "org.gimp.GIMP.Plugin.Resynthesizer",
     "branch": "3",
     "runtime": "org.gimp.GIMP",
-    "runtime-version": "beta",
-    "sdk": "org.gnome.Sdk//47",
+    "runtime-version": "stable",
+    "sdk": "org.gnome.Sdk//48",
     "build-extension": true,
     "build-options": {
         "prefix": "/app/extensions/Resynthesizer",
@@ -34,7 +34,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/bootchk/resynthesizer.git",
-                    "commit": "93d21398aee0f8086b1a9fa5d37b2dd090463417"
+                    "tag": "v3.0",
+                    "commit": "3846f799b25362efd877c9d9032a29318ab81aaa"
                 },
                 {
                     "type": "patch",
